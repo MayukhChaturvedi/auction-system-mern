@@ -23,7 +23,7 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       console.log("Login Failed", error);
-      setIsError(error || "something went wrong");
+      setIsError(error || "Something went wrong");
       setTimeout(() => {
         setIsError("");
       }, 10000);
@@ -39,17 +39,19 @@ const Login = () => {
   if (loading) return <LoadingScreen />;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-slate-50 flex flex-col">
       <main className="flex-grow flex items-center justify-center p-4">
         <div className="w-full max-w-md">
-          <div className="bg-white p-8 rounded-sm shadow">
-            <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+          <div className="bg-white p-8 rounded-xl shadow-md border border-slate-200">
+            <h1 className="text-3xl font-bold mb-6 text-center text-slate-800">
+              Login
+            </h1>
 
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-slate-700 mb-1"
                 >
                   Email
                 </label>
@@ -63,7 +65,7 @@ const Login = () => {
                       email: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                   placeholder="you@example.com"
                   required
                 />
@@ -72,7 +74,7 @@ const Login = () => {
               <div className="mb-6">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="block text-sm font-medium text-slate-700 mb-1"
                 >
                   Password
                 </label>
@@ -86,14 +88,14 @@ const Login = () => {
                       password: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                   placeholder="••••••••"
                   required
                 />
               </div>
 
               {isError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 mb-4 -mt-2 py-3 rounded-md">
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 mb-4 -mt-2 py-3 rounded-md text-sm">
                   {isError}
                 </div>
               )}
@@ -101,23 +103,23 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-indigo-800 text-white py-2 px-4 rounded-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-md transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? "Logging in..." : "Login"}
               </button>
             </form>
 
-            <div className="mt-4 text-center text-sm text-gray-600">
+            <div className="mt-4 text-center text-sm text-slate-600">
               <Link to="#" className="hover:underline">
                 Forgot your password?
               </Link>
             </div>
 
-            <div className="mt-6 text-center text-sm text-gray-600">
-              Don't have an account?{" "}
+            <div className="mt-6 text-center text-sm text-slate-600">
+              Don&apos;t have an account?{" "}
               <Link
                 to="/signup"
-                className="text-indigo-800 font-medium hover:underline"
+                className="text-teal-600 font-medium hover:underline"
               >
                 Sign up
               </Link>

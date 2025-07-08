@@ -3,107 +3,82 @@ import { AdsComponent } from "../components/AdsComponent";
 import { useSelector } from "react-redux";
 
 export const About = () => {
-	const { user } = useSelector((state) => state.auth);
-	return (
-		<div className="min-h-screen bg-gray-50">
-			<div className="max-w-5xl mx-auto px-4 py-12">
-				<div className="bg-white rounded-sm shadow-sm p-8">
-					<h1 className="text-3xl font-bold text-gray-900 mb-8">
-						About This Project
-					</h1>
+  const { user } = useSelector((state) => state.auth);
 
-					<div className="prose max-w-none text-gray-700 leading-relaxed space-y-6">
-						<p className="text-lg">
-							Welcome to our Online Auction System - a comprehensive web
-							application designed to facilitate online bidding and auctions.
-						</p>
+  return (
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sm:p-10">
+          <h1 className="text-4xl font-bold text-gray-900 mb-6">About Us</h1>
 
-						<section>
-							<h2 className="text-xl font-semibold text-gray-900 mb-4">
-								Project Purpose
-							</h2>
-							<p>
-								This project has been developed as an educational resource for
-								students pursuing their final year or third year minor/major
-								projects. It serves as a practical example of building a
-								full-featured web application with modern technologies and best
-								practices.
-							</p>
-						</section>
+          <div className="prose max-w-none text-gray-700 space-y-10">
+            <p className="text-lg">
+              Welcome to our Online Auction Platform — a trusted destination where buyers and sellers connect to bid on a wide variety of items in real-time. Whether you're looking to discover great deals or list your own products for auction, our platform is designed to deliver a secure, intuitive, and engaging auction experience.
+            </p>
 
-						<section>
-							<h2 className="text-xl font-semibold text-gray-900 mb-4">
-								For Students
-							</h2>
-							<p>
-								If you're a computer science or related field student working on
-								your academic project, you can use this codebase to:
-							</p>
-							<ul className="list-disc pl-6 mt-3 space-y-2">
-								<li>
-									Understand modern web development patterns and practices
-								</li>
-								<li>Learn how to implement real-time bidding systems</li>
-								<li>Study user authentication and authorization</li>
-								<li>Explore database design for auction systems</li>
-								<li>Learn about responsive design and user experience</li>
-							</ul>
-						</section>
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-3">Our Mission</h2>
+              <p>
+                We aim to make online auctions accessible, transparent, and efficient for everyone. Our platform empowers individuals and businesses to reach broader audiences, sell smarter, and bid confidently — all in one seamless environment.
+              </p>
+            </section>
 
-						{!user && <AdsComponent dataAdSlot="1002244889" />}
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-3">Why Choose Us?</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Real-time bidding system with instant updates</li>
+                <li>Verified sellers and secure payment options</li>
+                <li>Wide range of categories — from electronics to collectibles</li>
+                <li>Intuitive listing tools for sellers</li>
+                <li>Responsive design for mobile, tablet, and desktop</li>
+              </ul>
+            </section>
 
-						<section>
-							<h2 className="text-xl font-semibold text-gray-900 mb-4">
-								Key Features
-							</h2>
-							<ul className="list-disc pl-6 space-y-2">
-								<li>User registration and authentication</li>
-								<li>Real-time auction bidding</li>
-								<li>Item listing and management</li>
-								<li>User profile management</li>
-								<li>Responsive design for all devices</li>
-							</ul>
-						</section>
+            {!user && (
+              <section className="mt-4">
+                <AdsComponent dataAdSlot="1002244889" />
+              </section>
+            )}
 
-						<section>
-							<h2 className="text-xl font-semibold text-gray-900 mb-4">
-								Getting Started
-							</h2>
-							<p>
-								To get started with this project, visit the GitHub repository
-								where you'll find detailed installation instructions,
-								documentation, and code explanations. The repository includes
-								everything you need to set up and run the application locally.
-							</p>
-						</section>
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-3">How It Works</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Create an account to start bidding or listing items</li>
+                <li>Browse auctions and place bids in real time</li>
+                <li>Highest bidder wins the item at auction close</li>
+                <li>Secure checkout and delivery follow each successful bid</li>
+              </ul>
+            </section>
 
-						<section>
-							<h2 className="text-xl font-semibold text-gray-900 mb-4">
-								Academic Use
-							</h2>
-							<p>
-								Students are encouraged to study this codebase, understand the
-								implementation, and adapt it for their own projects. Please
-								ensure you follow your institution's guidelines regarding code
-								usage and attribution in academic work.
-							</p>
-						</section>
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-3">Secure and Transparent</h2>
+              <p>
+                Our platform uses advanced security protocols and fraud detection to protect both buyers and sellers. Every bid, payment, and transaction is logged and monitored to ensure trust and fairness.
+              </p>
+            </section>
 
-						<div className="mt-12 pt-8 border-t border-gray-200">
-							<p className="text-center">
-								Have questions or need support? Feel free to{" "}
-								<Link
-									to="/contact"
-									className="text-blue-600 hover:text-blue-800 underline font-medium"
-								>
-									contact us
-								</Link>{" "}
-								for assistance.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-3">Join Our Community</h2>
+              <p>
+                Thousands of users trust our auction system to buy and sell everyday. Whether you're a casual buyer, a serious collector, or a business owner — there's a place for you here. Sign up today and experience the future of online auctions.
+              </p>
+            </section>
+
+            <div className="pt-8 mt-8 border-t border-gray-200">
+              <p className="text-center">
+                Questions or feedback?{" "}
+                <Link
+                  to="/contact"
+                  className="text-blue-600 hover:text-blue-800 underline font-medium"
+                >
+                  Contact our team
+                </Link>{" "}
+                — we're happy to help!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };

@@ -1,11 +1,8 @@
 const LoadingScreen = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div
-        className="loader border-t-2 rounded-full border-yellow-500 bg-yellow-300 animate-spin
-aspect-square w-10 flex justify-center items-center text-yellow-700"
-      >
-        $
+    <div className="flex justify-center items-center min-h-screen bg-white">
+      <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin flex items-center justify-center">
+        <span className="text-yellow-600 font-bold text-lg">$</span>
       </div>
     </div>
   );

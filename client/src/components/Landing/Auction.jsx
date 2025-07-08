@@ -1,128 +1,130 @@
-import { FaClock, FaArrowRight, FaChevronRight } from "react-icons/fa";
+import { FaClock, FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router";
 import { AdsComponent } from "../AdsComponent";
 
 export const Auction = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">Live Auctions</h2>
+    <section className="py-20 bg-gradient-to-br from-gray-100 via-white to-gray-200 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-12">
+          <h2 className="text-4xl font-extrabold text-gray-800 mb-4 sm:mb-0 tracking-tight">
+            🏷️ Live Auctions
+          </h2>
           <Link
             to="/signup"
-            className="text-gray-700 hover:text-gray-900 flex items-center"
+            className="text-blue-600 hover:text-blue-800 font-medium text-lg inline-flex items-center transition"
           >
-            View all <FaChevronRight className="h-4 w-4 ml-1" />
+            View all <FaChevronRight className="ml-2 mt-0.5" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-2">
+        {/* Auction Grid */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Auction Item 1 */}
-          <div className="border border-gray-200 rounded-md overflow-hidden hover:shadow-lg transition-shadow bg-white">
-            <div className="relative">
+          <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition p-5 flex flex-col justify-between">
+            <div className="relative mb-4 rounded-xl overflow-hidden">
               <img
                 src="https://res.cloudinary.com/dhv8qx1qy/image/upload/v1750644725/miekytfqgwnlj4jqai5k.png"
                 alt="Vintage Camera"
-                className="w-full h-48 object-contain"
+                className="w-full h-56 object-cover rounded-xl"
               />
-              <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-sm text-xs font-medium">
-                <FaClock className="inline h-3 w-3 mr-1" />
+              <div className="absolute top-3 left-3 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                <FaClock className="inline mr-1" />
                 2h 15m
               </div>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
-                Vintage Film Camera - Excellent Condition
-              </h3>
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="text-sm text-gray-500">Current Bid</p>
-                  <p className="text-lg font-bold text-gray-900">$245.00</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm text-gray-500">Bids</p>
-                  <p className="text-sm font-medium text-gray-700">12</p>
-                </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+              🎥 Vintage Film Camera - Excellent Condition
+            </h3>
+            <div className="flex justify-between items-center text-sm text-gray-600 mb-4">
+              <div>
+                <p>Current Bid</p>
+                <p className="text-xl font-bold text-gray-900">$245.00</p>
               </div>
-              <Link to='/signup'>
-              <div className="w-full bg-indigo-900 hover:bg-indigo-800 text-white text-center py-2 px-4 rounded-sm font-medium transition-colors">
-                Place Bid
+              <div className="text-right">
+                <p>Bids</p>
+                <p className="font-semibold">12</p>
               </div>
-              </Link>
             </div>
+            <Link to="/signup">
+              <button className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-2 rounded-xl transition">
+                Place Bid
+              </button>
+            </Link>
           </div>
 
           {/* Auction Item 2 */}
-          <div className="border border-gray-200 rounded-md overflow-hidden hover:shadow-lg transition-shadow bg-white">
-            <div className="relative">
+          <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition p-5 flex flex-col justify-between">
+            <div className="relative mb-4 rounded-xl overflow-hidden">
               <img
                 src="https://res.cloudinary.com/dhv8qx1qy/image/upload/v1750644637/lk7l3ar3sptniptieyo3.png"
                 alt="Antique Watch"
-                className="w-full h-48 object-contain"
+                className="w-full h-56 object-cover rounded-xl"
               />
-              <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-sm text-xs font-medium">
-                <FaClock className="inline h-3 w-3 mr-1" />
+              <div className="absolute top-3 left-3 bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                <FaClock className="inline mr-1" />
                 5h 42m
               </div>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
-                Luxury Swiss Watch - Gold Plated
-              </h3>
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="text-sm text-gray-500">Current Bid</p>
-                  <p className="text-lg font-bold text-gray-900">$1,250.00</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm text-gray-500">Bids</p>
-                  <p className="text-sm font-medium text-gray-700">28</p>
-                </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+              ⌚ Luxury Swiss Watch - Gold Plated
+            </h3>
+            <div className="flex justify-between items-center text-sm text-gray-600 mb-4">
+              <div>
+                <p>Current Bid</p>
+                <p className="text-xl font-bold text-gray-900">$1,250.00</p>
               </div>
-              <Link to='/signup'>
-              <div className="w-full bg-indigo-900 hover:bg-indigo-800 text-white text-center py-2 px-4 rounded-sm font-medium transition-colors">
-                Place Bid
+              <div className="text-right">
+                <p>Bids</p>
+                <p className="font-semibold">28</p>
               </div>
-              </Link>
             </div>
+            <Link to="/signup">
+              <button className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-semibold py-2 rounded-xl transition">
+                Place Bid
+              </button>
+            </Link>
           </div>
 
           {/* Auction Item 3 */}
-          <div className="border border-gray-200 rounded-md overflow-hidden hover:shadow-lg transition-shadow bg-white">
-            <div className="relative">
+          <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition p-5 flex flex-col justify-between">
+            <div className="relative mb-4 rounded-xl overflow-hidden">
               <img
                 src="https://res.cloudinary.com/dhv8qx1qy/image/upload/v1750644675/tatznfsoekfp3vsoeswd.png"
                 alt="Art Painting"
-                className="w-full h-48 object-contain"
+                className="w-full h-56 object-cover rounded-xl"
               />
-              <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-sm text-xs font-medium">
-                <FaClock className="inline h-3 w-3 mr-1" />
+              <div className="absolute top-3 left-3 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
+                <FaClock className="inline mr-1" />
                 1d 3h
               </div>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
-                Original Oil Painting - Abstract Art
-              </h3>
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="text-sm text-gray-500">Current Bid</p>
-                  <p className="text-lg font-bold text-gray-900">$890.00</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm text-gray-500">Bids</p>
-                  <p className="text-sm font-medium text-gray-700">7</p>
-                </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+              🎨 Original Oil Painting - Abstract Art
+            </h3>
+            <div className="flex justify-between items-center text-sm text-gray-600 mb-4">
+              <div>
+                <p>Current Bid</p>
+                <p className="text-xl font-bold text-gray-900">$890.00</p>
               </div>
-              <Link to='/signup'>
-              <div className="w-full bg-indigo-900 hover:bg-indigo-800 text-white text-center py-2 px-4 rounded-sm font-medium transition-colors">
-                Place Bid
+              <div className="text-right">
+                <p>Bids</p>
+                <p className="font-semibold">7</p>
               </div>
-              </Link>
             </div>
+            <Link to="/signup">
+              <button className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-2 rounded-xl transition">
+                Place Bid
+              </button>
+            </Link>
           </div>
         </div>
-        <AdsComponent dataAdSlot="5537585913" />
+
+        {/* Ads */}
+        <div className="mt-12">
+          <AdsComponent dataAdSlot="5537585913" />
+        </div>
       </div>
     </section>
   );

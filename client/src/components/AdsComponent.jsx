@@ -11,7 +11,7 @@ export const AdsComponent = ({ dataAdSlot }) => {
 
   return (
     <ins
-      className="adsbygoogle"
+      className="adsbygoogle w-full max-w-screen-lg mx-auto my-6 rounded-lg shadow-md border border-gray-200"
       style={{ display: "block" }}
       data-ad-client="ca-pub-9347518247329906"
       data-ad-slot={dataAdSlot}

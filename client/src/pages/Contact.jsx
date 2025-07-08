@@ -16,19 +16,12 @@ export const Contact = () => {
   const { isPending, mutate } = useMutation({
     mutationFn: () => sendMessage(formData),
     onSuccess: () => {
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
       setSubmitted(true);
     },
     onError: (error) => {
-      setIsError(error?.response?.data?.error || "something went wrong");
-      setTimeout(() => {
-        setIsError("");
-      }, 10000);
+      setIsError(error?.response?.data?.error || "Something went wrong");
+      setTimeout(() => setIsError(""), 10000);
     },
   });
 
@@ -43,17 +36,18 @@ export const Contact = () => {
   };
 
   return (
-    <main className="min-h-screen">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-2xl font-bold text-center mb-8">Contact Us</h1>
+    <main className="min-h-screen bg-gray-50 py-16">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-10">
+          Contact Us
+        </h1>
 
-        <div className="bg-white rounded-md shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-xl shadow-md border border-gray-200 p-8">
           {submitted ? (
-            <div className="text-center py-8">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-green-100 mb-4">
+            <div className="text-center py-10">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-100 mb-5">
                 <svg
-                  className="h-6 w-6 text-green-600"
-                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6 text-green-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -66,26 +60,23 @@ export const Contact = () => {
                   />
                 </svg>
               </div>
-              <h2 className="text-xl font-medium text-gray-900 mb-2">
-                Thank you for your message!
+              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+                Message sent!
               </h2>
-              <p className="text-gray-500 mb-6">
-                We'll get back to you as soon as possible.
+              <p className="text-gray-600 mb-6">
+                We appreciate you reaching out. We'll respond shortly.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
-                className="text-indigo-600 hover:text-indigo-800 font-medium"
+                className="text-indigo-600 hover:text-indigo-800 font-medium underline"
               >
                 Send another message
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Name
                 </label>
                 <input
@@ -95,16 +86,13 @@ export const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   placeholder="Your name"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
                 <input
@@ -114,16 +102,13 @@ export const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   placeholder="your.email@example.com"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                   Subject
                 </label>
                 <input
@@ -133,48 +118,45 @@ export const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   placeholder="How can we help you?"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
+                  rows={5}
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500"
                   placeholder="Your message..."
-                ></textarea>
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
               </div>
-              {/* Error Message */}
+
               {isError && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md">
+                <div className="bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded-md">
                   {isError}
                 </div>
               )}
 
-              <div className="flex justify-end ">
+              <div className="flex justify-end">
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="flex justify-center items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded-md text-sm font-medium shadow-md hover:bg-indigo-700 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isPending ? (
                     "Sending..."
                   ) : (
                     <>
-                      Send
-                      <FiSend className="h-4 w-4 ml-2" />
+                      Send Message
+                      <FiSend className="w-4 h-4" />
                     </>
                   )}
                 </button>
